@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/tasks";
+const API_URL = "https://taskmanager-fjo7.onrender.com/api/tasks";
 
 // Get all tasks
 export const getTasks = async () => {
@@ -51,3 +51,4 @@ export const deleteTask = async (id) => {
   await axios.delete(`${API_URL}/${id}`);
   return id;
 };
+
