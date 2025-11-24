@@ -18,37 +18,8 @@ Frontend                    React, Bootstrap
 Backend                     Node.js, Express.js, JavaScript
 DataBase                    MongoDB
 
-📁 Folder Structure
-Frontend:
 
-src/
-│── components/
-│   ├── TaskForm.js
-│   ├── TaskItem.js
-│   └── TaskList.js
-│── services/
-│   └── TaskService.js
-│── App.js
-└── index.js
-
-Backend:
-backend-taskmanager/
-│── src/
-│   │── config/
-│   │   └── db.js                # MongoDB connection
-│   │
-│   │── controllers/
-│   │   └── taskController.js    # Logic for handling requests
-│   │
-│   │── models/
-│   │   └── taskModel.js         # Mongoose schema/model
-│   │
-│   │── routes/
-│   │   └── taskRoutes.js        # API endpoints
-│                    
-│── index.js                    # server entry point
-│── package.json
-
+<img width="534" height="730" alt="{9658B3EC-3E67-43A3-9F61-798D2481F6D6}" src="https://github.com/user-attachments/assets/de4008f1-b948-4b3b-b143-82d5419149fd" />
 
 
 
