@@ -1,28 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-const TaskForm = ({ onAddTask, editingTask, onUpdateTask }) => {
+const TaskForm = ({ onAddTask }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
-  useEffect(() => {
-    if (editingTask) {
-      setTitle(editingTask.title);
-      setDescription(editingTask.description || "");
-    }
-  }, [editingTask]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) return;
 
     const taskData = { title, description };
-
-    if (editingTask) {
-      onUpdateTask(editingTask.id, taskData);
-    } else {
-      onAddTask(taskData);
-    }
-
+    onAddTask(taskData);
     setTitle("");
     setDescription("");
   };
@@ -50,7 +37,7 @@ const TaskForm = ({ onAddTask, editingTask, onUpdateTask }) => {
       </div>
 
       <button className="btn btn-primary w-100" type="submit">
-        {editingTask ? "Update Task" : "Add Task"}
+        Add Task
       </button>
     </form>
   );
