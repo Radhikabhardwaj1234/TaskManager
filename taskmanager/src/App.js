@@ -10,11 +10,8 @@ import {
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  
-  // Load tasks when App mounts
-  useEffect(() => {
-    loadTasks();
-  }, []);
+  const [filter, setFilter] = useState("all");          // all | completed | pending
+  const [loading, setLoading] = useState(false);
   
   const loadTasks = async () => {
     setLoading(true);
@@ -22,6 +19,11 @@ const App = () => {
     setTasks(data);
     setLoading(false);
   };
+
+  // Load tasks when App mounts
+  useEffect(() => {
+    loadTasks();
+  }, []);
 
   const handleAddTask = async (taskData) => {
     try {
@@ -53,20 +55,6 @@ const App = () => {
     }
   };
 
-const handleToggleComplete = async (task) => {
-    try {
-      setLoading(true);
-      await updateTask(task.id, { completed: !task.completed });
-      await loadTasks();
-    } finally {
-      setLoading(false);
-    }
-  };
-
-    const [filter, setFilter] = useState("all"); // all | completed | pending
-    const [editingTask, setEditingTask] = useState(null);
-    const [loading, setLoading] = useState(false);
-
     const filteredTasks = tasks.filter((task) => {
       if (filter === "completed") return task.completed;
       if (filter === "pending") return !task.completed;
@@ -79,8 +67,6 @@ return (
 
       <TaskForm
           onAddTask={handleAddTask}
-          editingTask={editingTask}
-          onUpdateTask={handleUpdateTask}
       />
       <div className="d-flex justify-content-center gap-2 mb-4">
       <button
